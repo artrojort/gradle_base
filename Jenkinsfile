@@ -3,12 +3,13 @@ pipeline {
     stages {
         stage('Test') {
             steps {
-                sh 'sudo ./gradlew clean test --no-daemon' 
+		sh 'chmod +x ./gradlew'
+                sh './gradlew clean test --no-daemon' 
             }
 	}
 	stage('Build') {
 	    steps {
-		sh 'sudo ./gradlew build'
+		sh './gradlew build'
 	    }
         }
     }
